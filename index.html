@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Calculator </title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="bootstrap.bundle.min.js"></script>
+
+    <style onload="load()">
+        body {
+            background-image: linear-gradient(45deg, rgba(245, 247, 250, 1) 0%, rgba(195, 207, 226, 1) 100%);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            overflow-y: clip;
+        }
+        .container-fluid {
+            padding-bottom: 300px;
+        }
+        button{
+            min-height: 75px !important;
+        }
+        #backspace {
+            background-image: url("media/backspace.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        #copyBtn {
+            background-image: url("media/copy.png");
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        #clearBtn {
+            background-image: url("media/clear.png");
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1 class="d-block mx-auto text-center mt-3"> Calculator </h1>
+        <div class="d-block mx-auto mt-3 py-2 col-xl-4 col-lg-5 col-md-7 col-10 shadow-lg rounded-4" id="mainCalc">
+            <!-- Row 1 of buttons -->
+            <div class="row py-2 d-flex justify-content-center">
+                <input type="text" id="expression" class="fs-3 col-7 rounded-start-4 border-dark border-1 shadow-lg"
+                    onkeypress="keyControl(event)">
+                <button class="btn btn-danger border-1 border-dark fs-3 rounded-end-4 rounded-start-0 col-3 shadow-lg"
+                    id="backspace"> <i class="fas fa-backspace"></i> </button>
+            </div>
+            <!-- Row 2 of buttons -->
+            <div class="row d-flex justify-content-center">
+                <button class="btn col-2 btn-dark border-1 border-white fs-3 m-1 shadow-lg rounded-4"> 1 </button>
+                <button class="btn col-2 btn-dark border-1 border-white fs-3 m-1 shadow-lg rounded-4"> 2 </button>
+                <button class="btn col-2 btn-dark border-1 border-white fs-3 m-1 shadow-lg rounded-4"> 3 </button>
+                <button class="btn col-2 btn-warning border-1 border-white fs-3 m-1 shadow-lg rounded-4"> + </button>
+            </div>
+            <!-- Row 3 of buttons -->
+            <div class="row d-flex justify-content-center">
+                <button class="btn col-2 btn-dark border-1 border-white fs-3 m-1 shadow-lg rounded-4"> 4 </button>
+                <button class="btn col-2 btn-dark border-1 border-white fs-3 m-1 shadow-lg rounded-4"> 5 </button>
+                <button class="btn col-2 btn-dark border-1 border-white fs-3 m-1 shadow-lg rounded-4"> 6 </button>
+                <button class="btn col-2 btn-warning border-1 border-white fs-3 m-1 shadow-lg rounded-4"> - </button>
+            </div>
+            <!-- Row 4 of buttons -->
+            <div class="row d-flex justify-content-center">
+                <button class="btn col-2 btn-dark border-1 border-white fs-3 m-1 shadow-lg rounded-4"> 7 </button>
+                <button class="btn col-2 btn-dark border-1 border-white fs-3 m-1 shadow-lg rounded-4"> 8 </button>
+                <button class="btn col-2 btn-dark border-1 border-white fs-3 m-1 shadow-lg rounded-4"> 9 </button>
+                <button class="btn col-2 btn-warning border-1 border-white fs-3 m-1 shadow-lg rounded-4"> * </button>
+            </div>
+            <!-- Row 5 of buttons -->
+            <div class="row d-flex justify-content-center">
+                <button class="btn col-2 btn-dark border-1 border-white fs-3 m-1 shadow-lg rounded-4"> . </button>
+                <button class="btn col-2 btn-dark border-1 border-white fs-3 m-1 shadow-lg rounded-4"> 0 </button>
+                <button class="btn col-2 btn-success border-1 border-white fs-3 m-1 shadow-lg rounded-4"> = </button>
+                <button class="btn col-2 btn-warning border-1 border-white fs-3 m-1 shadow-lg rounded-4"> / </button>
+            </div>
+            <!-- Row 6 of buttons -->
+            <div class="row w-100 d-block btn-group mt-3 mx-auto text-center" role="group">
+                <button class="btn btn-primary col-2 border-2 border-dark rounded-start-3" onclick="copy()" id="copyBtn"></button>
+                <button class="btn btn-danger col-2 border-2 border-dark rounded-end-3"
+                        onclick="document.getElementById('expression').value = ''" id="clearBtn"></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="code.js"></script>
+</body>
+
+</html>
